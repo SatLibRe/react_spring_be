@@ -37,7 +37,7 @@ public class CategoryController {
 		return categoryRepository.findAll();	
 	}
 	
-	@GetMapping("/category/{id}")
+	@GetMapping("/categories/{id}")
 	ResponseEntity<?> getCatergory(@PathVariable Long id){
 		Optional<Category> category = categoryRepository.findById(id);
 		return category.map(response -> ResponseEntity.ok().body(response))
@@ -50,13 +50,13 @@ public class CategoryController {
 		return ResponseEntity.created(new URI("/api/category/" + result.getId())).body(result);
 	}
 	
-	@PutMapping("/category/{id}")
+	@PutMapping("/categories/{id}")
 	ResponseEntity<Category> updateCategory(@Validated @RequestBody Category category){
 		Category result = categoryRepository.save(category);
 		return ResponseEntity.ok().body(result);
 	}
 	
-	@DeleteMapping("/category/{id}")
+	@DeleteMapping("/categories/{id}")
 	ResponseEntity<?> deleteCategory(@PathVariable Long id){
 		categoryRepository.deleteById(id);
 		return ResponseEntity.ok().build();
