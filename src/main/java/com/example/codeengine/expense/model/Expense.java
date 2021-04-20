@@ -1,6 +1,7 @@
 package com.example.codeengine.expense.model;
 
 import java.time.Instant;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Expense {
 	
 	@Id
 	private Long id;
-	private Instant expensedate;
+	private Date expensedate;
 	private String description;
 	
 	
